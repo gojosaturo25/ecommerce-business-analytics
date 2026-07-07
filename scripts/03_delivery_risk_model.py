@@ -34,6 +34,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import joblib
 
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.preprocessing import LabelEncoder, StandardScaler
@@ -277,6 +278,10 @@ def train_and_evaluate(X, y, feature_names):
     plot_comparison(y_test, y_pred_lr, y_prob_lr, y_pred_rf, y_prob_rf, results)
     plot_feature_importance(rf, feature_names)
     plot_logistic_coefficients(lr, feature_names)
+    # ---- Save the Model ----
+    model_path = os.path.join(PROJECT_ROOT, 'models', 'rf_model.joblib')
+    joblib.dump({'model': rf, 'features': feature_names}, model_path)
+    tee(f"\n  Random Forest model saved to: {model_path}")
     
     return results
 

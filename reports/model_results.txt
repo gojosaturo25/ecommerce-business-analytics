@@ -79,6 +79,8 @@ weighted avg       0.91      0.86      0.88     22035
   Plotting logistic regression coefficients...
   ✓ Chart saved: /Users/vishalkumar/Desktop/flipkart/reports/figures/15_logistic_coefficients.png
 
+  Random Forest model saved to: /Users/vishalkumar/Desktop/flipkart/models/rf_model.joblib
+
 ======================================================================
   FINAL MODEL SUMMARY
 ======================================================================

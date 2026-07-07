@@ -4,6 +4,20 @@ A portfolio-grade business analytics project built on the **Olist Brazilian E-Co
 
 ---
 
+## 🎯 Executive Summary & Business Problem
+
+**The Problem:** E-commerce platforms often struggle with customer retention and logistics management. Late deliveries cause customer churn, but predicting which orders will be late *before* they happen is difficult.
+
+**The Solution:** This project analyzes 100,000+ real e-commerce orders to identify the root causes of delivery delays and customer dissatisfaction. 
+
+**Key Outcomes:**
+- Built an **automated ETL pipeline** to clean and load raw CSVs into a SQLite Star Schema.
+- Used **SQL window functions** to perform RFM customer segmentation, identifying that a critically low 3% of customers drive repeat purchases.
+- Used **Statistical Hypothesis Testing** to prove that late deliveries destroy customer satisfaction (dropping average review scores from 4.21 to 2.55).
+- Trained a **Random Forest Machine Learning Model** (86.4% accuracy, 0.845 ROC-AUC) to proactively predict and flag high-risk late deliveries at checkout.
+
+---
+
 ## 🏗️ Architecture
 
 ```
@@ -143,6 +157,21 @@ All charts saved to `reports/figures/`. Statistical and model results saved to `
 - **Top Risk Factors:** Seller historical late rate (#1), estimated delivery days (#2), and month/seasonality (#3) identified as strongest predictors of late delivery
 - **RFM Segments:** 16.2% of customers classified as "Champions" (30.4% of revenue), 8.0% as "At Risk" (R$ 816K revenue at stake). Repeat purchase rate is critically low at 3.0%
 - **ML Model:** Random Forest classifier achieved 86.4% accuracy, 0.845 ROC-AUC, 0.603 recall for late-delivery prediction on held-out data
+
+---
+
+## 📊 Data Visualizations
+
+Below are a few of the 15 charts generated automatically by the Python EDA and ML scripts:
+
+### 1. Delivery Delay Destroys Customer Satisfaction (T-Test)
+![T-Test: On-Time vs Late](reports/figures/11_ttest_ontime_vs_late.png)
+
+### 2. Random Forest Feature Importance
+![Feature Importance](reports/figures/14_feature_importance_rf.png)
+
+### 3. Monthly Order Volume & GMV
+![Order Volume Trend](reports/figures/01_order_volume_trend.png)
 
 ---
 
