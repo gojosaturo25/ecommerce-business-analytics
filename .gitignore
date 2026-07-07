@@ -22,8 +22,7 @@ data/raw/*.csv
 data/processed/*.csv
 data/processed/*.db
 
-# Dashboard data exports
-dashboard/data/*.csv
+# Dashboard data exports (allowed for Streamlit)
 
 # IDE
 .vscode/
