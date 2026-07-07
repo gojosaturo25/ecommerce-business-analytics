@@ -146,7 +146,7 @@ All charts saved to `reports/figures/`. Statistical and model results saved to `
 
 ---
 
-## 🎯 Resume Bullets (Real Numbers)
+## 🎯 Highlights
 
 - "Designed and built a SQL star-schema data warehouse from 100K+ e-commerce order records, defining and tracking key business metrics including R$15.4M GMV, R$160 AOV, and 3.0% repeat purchase rate."
 - "Wrote SQL queries using window functions (NTILE, LAG, RANK) to perform RFM customer segmentation across 96K customers, identifying 8% classified as at-risk and 16% as Champions driving 30% of revenue."
