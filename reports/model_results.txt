@@ -1,0 +1,95 @@
+======================================================================
+  Delivery Risk Prediction — ML Model
+======================================================================
+Loading data and engineering features...
+  Raw records: 110,189
+  After feature engineering: 110,171 records
+  Target distribution: {0: 101464, 1: 8707}
+  Late rate: 7.9%
+
+Preparing feature matrix...
+  Feature matrix shape: (110171, 89)
+  Number of features: 89
+
+======================================================================
+  MODEL TRAINING & EVALUATION
+======================================================================
+
+  Train set: 88,136 (7.9% late)
+  Test set:  22,035 (7.9% late)
+
+  --- Logistic Regression ---
+
+  Logistic Regression Results:
+    Accuracy:  0.7209
+    Precision: 0.1795
+    Recall:    0.7094
+    F1 Score:  0.2865
+    ROC-AUC:   0.7926
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+     On-Time       0.97      0.72      0.83     20294
+        Late       0.18      0.71      0.29      1741
+
+    accuracy                           0.72     22035
+   macro avg       0.57      0.72      0.56     22035
+weighted avg       0.90      0.72      0.78     22035
+
+  5-Fold CV ROC-AUC: 0.7786 (±0.0087)
+
+  --- Random Forest ---
+
+  Random Forest Results:
+    Accuracy:  0.8642
+    Precision: 0.3133
+    Recall:    0.6031
+    F1 Score:  0.4124
+    ROC-AUC:   0.8450
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+     On-Time       0.96      0.89      0.92     20294
+        Late       0.31      0.60      0.41      1741
+
+    accuracy                           0.86     22035
+   macro avg       0.64      0.74      0.67     22035
+weighted avg       0.91      0.86      0.88     22035
+
+  5-Fold CV ROC-AUC: 0.8304 (±0.0032)
+
+  Plotting model comparison...
+  ✓ Chart saved: /Users/vishalkumar/Desktop/flipkart/reports/figures/13_model_comparison.png
+  Plotting feature importance...
+  ✓ Chart saved: /Users/vishalkumar/Desktop/flipkart/reports/figures/14_feature_importance_rf.png
+
+  Top 10 Most Important Features (Random Forest):
+    seller_late_rate                    0.2077
+    estimated_delivery_days             0.1224
+    month                               0.0879
+    state_late_rate                     0.0628
+    quarter                             0.0544
+    freight_value                       0.0471
+    seller_order_count                  0.0389
+    freight_ratio                       0.0333
+    log_price                           0.0308
+    price                               0.0307
+  Plotting logistic regression coefficients...
+  ✓ Chart saved: /Users/vishalkumar/Desktop/flipkart/reports/figures/15_logistic_coefficients.png
+
+======================================================================
+  FINAL MODEL SUMMARY
+======================================================================
+
+  Best Model: Random Forest
+  ROC-AUC:    0.8450
+  F1 Score:   0.4124
+  Precision:  0.3133
+  Recall:     0.6031
+
+  Business Recommendation:
+  The Random Forest model can identify orders at risk of late
+  delivery with 84.5% discriminative ability (ROC-AUC).
+  This enables proactive logistics interventions for high-risk orders.

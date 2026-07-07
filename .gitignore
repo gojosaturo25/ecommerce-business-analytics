@@ -1,0 +1,47 @@
+# ============================================================
+# .gitignore for E-Commerce Business Analytics Project
+# ============================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# Data files (too large for Git)
+data/raw/*.csv
+data/processed/*.csv
+data/processed/*.db
+
+# Dashboard data exports
+dashboard/data/*.csv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Keep directory structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!dashboard/data/.gitkeep
+!dashboard/screenshots/.gitkeep
+!reports/figures/.gitkeep

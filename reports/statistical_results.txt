@@ -1,0 +1,108 @@
+======================================================================
+  Statistical Hypothesis Testing
+======================================================================
+  Loaded 109,362 delivered order-items with reviews and delivery data
+
+======================================================================
+  TEST 1: CORRELATION — Delivery Delay vs Review Score
+======================================================================
+
+  Pearson Correlation:
+    r = -0.2288  (p = 0.00e+00)
+    Interpretation: weak negative correlation
+    Significant at α=0.05? YES ✓
+
+  Spearman Rank Correlation:
+    ρ = -0.1518  (p = 0.00e+00)
+    Interpretation: weak negative correlation
+    Significant at α=0.05? YES ✓
+
+  Business Insight: Delivery delays are significantly associated with lower review scores.
+  ✓ Chart saved: /Users/vishalkumar/Desktop/flipkart/reports/figures/10_correlation_delay_review.png
+
+======================================================================
+  TEST 2: INDEPENDENT T-TEST — On-Time vs Late Reviews
+======================================================================
+
+  Group Sizes:
+    On-Time: n = 100,850
+    Late:    n = 8,512
+
+  Descriptive Statistics:
+    On-Time: mean = 4.212, std = 1.233, median = 5.0
+    Late:    mean = 2.549, std = 1.661, median = 2.0
+
+  Welch's t-test:
+    t-statistic = 90.3043
+    p-value     = 0.00e+00
+    Significant at α=0.05? YES ✓
+    Significant at α=0.01? YES ✓
+
+  Effect Size:
+    Cohen's d = 1.3085 (large)
+
+  95% Confidence Interval for Mean Difference:
+    Difference = 1.6632
+    CI = [1.6271, 1.6993]
+
+  Mann-Whitney U Test (non-parametric confirmation):
+    U-statistic = 656,809,958
+    p-value     = 0.00e+00
+    Significant at α=0.05? YES ✓
+
+  Business Insight: On-time deliveries receive significantly higher review scores than late deliveries.
+  ✓ Chart saved: /Users/vishalkumar/Desktop/flipkart/reports/figures/11_ttest_ontime_vs_late.png
+
+======================================================================
+  TEST 3: ONE-WAY ANOVA — Delivery Times Across States
+======================================================================
+
+  Analyzing top 10 states: SP, RJ, MG, RS, PR, SC, BA, DF, GO, ES
+  Total observations: 99,185
+
+  State           N     Mean      Std   Median
+  --------------------------------------------
+  SP         46,168      8.7      6.7      7.2
+  RJ         13,964     15.1     11.2     12.0
+  MG         12,826     12.0      7.1     10.3
+  RS          6,116     15.2      9.2     13.1
+  PR          5,628     11.9      6.9     10.4
+  SC          4,058     14.9      8.6     13.0
+  BA          3,650     19.2     11.3     16.9
+  DF          2,336     13.0      7.4     11.2
+  GO          2,246     15.4      9.6     13.8
+  ES          2,193     15.5      9.4     13.3
+
+  One-Way ANOVA:
+    F-statistic = 1614.9455
+    p-value     = 0.00e+00
+    Significant at α=0.05? YES ✓
+
+  Effect Size:
+    η² (eta-squared) = 0.1278
+    Interpretation: medium effect
+    12.8% of variance in delivery time is explained by state
+
+  Kruskal-Wallis Test (non-parametric confirmation):
+    H-statistic = 18770.1187
+    p-value     = 0.00e+00
+    Significant at α=0.05? YES ✓
+
+  Business Insight: Delivery times differ significantly across states — logistics optimization should be region-specific.
+  ✓ Chart saved: /Users/vishalkumar/Desktop/flipkart/reports/figures/12_anova_delivery_by_state.png
+
+======================================================================
+  SUMMARY OF ALL TESTS
+======================================================================
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  Test                          │  Significant? │ Effect Size   │
+  ├─────────────────────────────────────────────────────────────────┤
+  │  1. Correlation (delay→review) │  See above    │ See above     │
+  │  2. T-test (on-time vs late)   │  See above    │ See above     │
+  │  3. ANOVA (delivery by state)  │  See above    │ See above     │
+  └─────────────────────────────────────────────────────────────────┘
+  
+  Note: Actual values are printed above for each test.
+  All results saved to: reports/statistical_results.txt
+
