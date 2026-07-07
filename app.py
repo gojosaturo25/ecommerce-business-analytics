@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import plotly.express as px
 
 # ==========================================
 # CONFIGURATION
@@ -90,19 +91,31 @@ if page == "📊 Executive Dashboard":
         st.subheader("📈 Monthly GMV & Volume Trend")
         # Ensure year_month is string for proper plotting
         kpi_df['year_month'] = kpi_df['year_month'].astype(str)
-        st.bar_chart(data=kpi_df.set_index('year_month')['total_gmv'], use_container_width=True)
+        fig_trend = px.bar(kpi_df, x='year_month', y='total_gmv', 
+                           title='Total GMV by Month',
+                           labels={'year_month': 'Month', 'total_gmv': 'GMV (R$)'},
+                           color_discrete_sequence=['#2196F3'])
+        st.plotly_chart(fig_trend, use_container_width=True)
         
         col_charts1, col_charts2 = st.columns(2)
         
         with col_charts1:
             st.subheader("🏆 Top Categories by Revenue")
-            top_cats = cat_df.head(10).set_index('product_category')['revenue']
-            st.bar_chart(top_cats)
+            top_cats = cat_df.head(10)
+            fig_cats = px.bar(top_cats, x='revenue', y='product_category', orientation='h',
+                              title='Top 10 Categories',
+                              labels={'revenue': 'Revenue (R$)', 'product_category': 'Category'},
+                              color_discrete_sequence=['#4CAF50']).update_yaxes(categoryorder='total ascending')
+            st.plotly_chart(fig_cats, use_container_width=True)
             
         with col_charts2:
             st.subheader("📍 Deliveries by State")
-            top_states = reg_df.head(10).set_index('customer_state')['total_orders']
-            st.bar_chart(top_states)
+            top_states = reg_df.head(10)
+            fig_states = px.bar(top_states, x='customer_state', y='total_orders',
+                                title='Top 10 States by Orders',
+                                labels={'total_orders': 'Orders', 'customer_state': 'State'},
+                                color_discrete_sequence=['#FF9800'])
+            st.plotly_chart(fig_states, use_container_width=True)
             
         st.markdown("---")
         st.subheader("Top Performing Sellers")
